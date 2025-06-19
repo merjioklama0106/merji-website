@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Merji Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="theme-toggle" onclick="toggleTheme()">🌓</div>
+    <div class="container">
+        <h1>Merji Store Marketplace</h1>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <p>Belum punya akun? <a href="#" onclick="showRegister()">Daftar di sini</a></p>
+        </form>
+        <form id="registerForm" style="display:none;">
+            <input type="text" id="newUsername" placeholder="Buat Username" required>
+            <input type="password" id="newPassword" placeholder="Buat Password" required>
+            <button type="submit">Register</button>
+            <p>Sudah punya akun? <a href="#" onclick="showLogin()">Login di sini</a></p>
+        </form>
+    </div>
+    <script src="script.js"></script>
+
+    <footer>
+        <div class="socials">
+            <p>Akun Media Sosial Kami</p>
+            <p>YouTube: <a href="https://youtube.com/@Merji" target="_blank">Merji</a> |
+               TikTok: <a href="https://tiktok.com/@MerjiOklama" target="_blank">@MerjiOklama</a> |
+               Instagram: <a href="https://instagram.com/merjioklama" target="_blank">@merjioklama</a></p>
+            <p>📧 Support: <a href="mailto:merjibusnise@gmail.com">merjibusnise@gmail.com</a></p>
+        </div>
+        <div class="copyright">© 2025 Copyright Merji Store</div>
+    </footer>
+
+</body>
+</html>

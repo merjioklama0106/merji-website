@@ -1,0 +1,114 @@
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+    transition: all 0.3s;
+}
+body.dark {
+    background-color: #121212;
+    color: white;
+}
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+input, button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: all 0.3s;
+}
+button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.products {
+    margin-top: 20px;
+}
+.product {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px auto;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    transition: transform 0.2s;
+}
+.product:hover {
+    transform: scale(1.05);
+    background-color: #e0e0e0;
+}
+
+.logout-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    background-color: crimson;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+#orderLink a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #25d366;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+#orderLink a:hover {
+    background-color: #1ebc59;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    font-size: 14px;
+    border-top: 1px solid #ccc;
+}
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+.socials {
+    margin-bottom: 10px;
+}
+.products {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.product {
+    background: linear-gradient(to right, #ffffff, #e3f2fd);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+body.dark .product {
+    background: linear-gradient(to right, #1f1f1f, #2c2c2c);
+}
