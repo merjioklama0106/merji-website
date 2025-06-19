@@ -56,7 +56,7 @@ function logout() {
 }
 
 function orderProduct(product) {
-    const number = "628123456789";
+    const number = "628979687563";
     const url = `https://wa.me/${number}?text=Saya%20ingin%20memesan%20${encodeURIComponent(product)}`;
     document.getElementById('orderLink').innerHTML = `<a href="${url}" target="_blank">Pesan ${product} via WhatsApp</a>`;
 }
