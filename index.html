@@ -1,41 +1,42 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Merji Store</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Merji Store Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="theme-toggle" onclick="toggleTheme()">🌓</div>
-    <div class="container">
-        <h1>Merji Store Marketplace</h1>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-            <p>Belum punya akun? <a href="#" onclick="showRegister()">Daftar di sini</a></p>
-        </form>
-        <form id="registerForm" style="display:none;">
-            <input type="text" id="newUsername" placeholder="Buat Username" required>
-            <input type="password" id="newPassword" placeholder="Buat Password" required>
-            <button type="submit">Register</button>
-            <p>Sudah punya akun? <a href="#" onclick="showLogin()">Login di sini</a></p>
-        </form>
-    </div>
-    <script src="script.js"></script>
+  <div class="container">
+    <h1 style="text-align:center;">Merji Store Marketplace</h1>
+<p style="text-align:center; font-size: 14px; color: #333; margin-top: 10px;">
+    Hallo... Sedang Mencari Hosting Murah Kualitas Gak Kalah Yah Betul Ini Tempat Hosting Murah Tapi Kualitas Gak Murahan. 
+    Dan Di Sini Selain Menjual Hosting, Juga Menjual Domain, Aplikasi Premium Dan Lainnya. Yuk Buruan Order Sekarang.
+</p>
 
-    <footer>
-        <div class="socials">
-            <p>Akun Media Sosial Kami</p>
-            <p>YouTube: <a href="https://youtube.com/@Merji" target="_blank">Merji</a> |
-               TikTok: <a href="https://tiktok.com/@MerjiOklama" target="_blank">@MerjiOklama</a> |
-               Instagram: <a href="https://instagram.com/merjioklama" target="_blank">@merjioklama</a></p>
-            <p>📧 Support: <a href="mailto:merjibusnise@gmail.com">merjibusnise@gmail.com</a></p>
-        </div>
-        <div class="copyright">© 2025 Copyright Merji Store</div>
-    </footer>
+    <div id="greeting" class="greeting"></div>
 
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+      <p>Belum punya akun? <a href="#" onclick="showRegister()">Daftar akun</a></p>
+    </form>
+
+    <form id="registerForm" style="display:none;">
+      <input type="text" id="newName" placeholder="Nama Lengkap" required />
+      <input type="text" id="newUsername" placeholder="Username" required />
+      <input type="password" id="newPassword" placeholder="Password" required />
+      <button type="submit">Daftar</button>
+      <p>Sudah punya akun? <a href="#" onclick="showLogin()">Login</a></p>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+
+  <footer style="text-align:center; margin-top: 40px; font-size: 0.9em; color: #555;">
+    © 2025 Copyright Merji Developer
+  </footer>
 </body>
 </html>

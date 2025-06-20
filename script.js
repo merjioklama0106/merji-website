@@ -1,82 +1,66 @@
 
-function toggleTheme() {
-    document.body.classList.toggle('dark');
-    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-}
+window.onload = function () {
+  const loginForm = document.getElementById("loginForm");
+  const registerForm = document.getElementById("registerForm");
 
-window.onload = function() {
-    const theme = localStorage.getItem('theme');
-    if (theme === 'dark') document.body.classList.add('dark');
+  loginForm.onsubmit = function (e) {
+    e.preventDefault();
+    const u = document.getElementById("username").value;
+    const p = document.getElementById("password").value;
+    const user = localStorage.getItem("user");
+    const pass = localStorage.getItem("pass");
+    if (u === user && p === pass) {
+      showMessage("Login berhasil!", () => {
+        localStorage.setItem("loggedIn", "true");
+        window.location.href = "home.html";
+      });
+    } else {
+      showMessage("Login gagal! Username atau password salah.");
+    }
+  };
+
+  registerForm.onsubmit = function (e) {
+    e.preventDefault();
+    const nama = document.getElementById("newName").value;
+    const user = document.getElementById("newUsername").value;
+    const pass = document.getElementById("newPassword").value;
+    localStorage.setItem("nama", nama);
+    localStorage.setItem("user", user);
+    localStorage.setItem("pass", pass);
+    showMessage("Registrasi berhasil!", () => {
+      showLogin();
+    });
+  };
+};
+
+function showLogin() {
+  document.getElementById("loginForm").style.display = "block";
+  document.getElementById("registerForm").style.display = "none";
 }
 
 function showRegister() {
-    document.getElementById('loginForm').style.display = 'none';
-    document.getElementById('registerForm').style.display = 'block';
-}
-
-function showLogin() {
-    document.getElementById('registerForm').style.display = 'none';
-    document.getElementById('loginForm').style.display = 'block';
-}
-
-document.getElementById('loginForm').onsubmit = function(e) {
-    e.preventDefault();
-    const user = localStorage.getItem('user');
-    const pass = localStorage.getItem('pass');
-    const u = document.getElementById('username').value;
-    const p = document.getElementById('password').value;
-    if (u === user && p === pass) {
-        showMessage('Login berhasil!', () => {
-            localStorage.setItem('loggedIn', 'true');
-            window.location.href = 'home.html';
-        });
-    } else {
-        showMessage('Login gagal! Username atau password salah.', () => {});
-    }
-}
-
-document.getElementById('registerForm').onsubmit = function(e) {
-    e.preventDefault();
-    const u = document.getElementById('newUsername').value;
-    const p = document.getElementById('newPassword').value;
-    localStorage.setItem('user', u);
-    localStorage.setItem('pass', p);
-    showMessage('Registrasi berhasil! Silakan login.', showLogin);
-}
-
-function checkLogin() {
-    if (localStorage.getItem('loggedIn') !== 'true') {
-        window.location.href = 'index.html';
-    }
+  document.getElementById("loginForm").style.display = "none";
+  document.getElementById("registerForm").style.display = "block";
 }
 
 function logout() {
-    localStorage.setItem('loggedIn', 'false');
-    window.location.href = 'index.html';
+  localStorage.removeItem("loggedIn");
+  showMessage("Logout berhasil!", () => {
+    window.location.href = "index.html";
+  });
 }
 
-function orderProduct(product) {
-    const number = "628979687563";
-    const url = `https://wa.me/${number}?text=Saya%20ingin%20memesan%20${encodeURIComponent(product)}`;
-    document.getElementById('orderLink').innerHTML = `<a href="${url}" target="_blank">Pesan ${product} via WhatsApp</a>`;
-}
-
-function showMessage(message, callback) {
-    const modal = document.createElement("div");
-    modal.style.position = "fixed";
-    modal.style.top = "0";
-    modal.style.left = "0";
-    modal.style.width = "100%";
-    modal.style.height = "100%";
-    modal.style.backgroundColor = "rgba(0,0,0,0.5)";
-    modal.style.display = "flex";
-    modal.style.alignItems = "center";
-    modal.style.justifyContent = "center";
-    modal.innerHTML = `
-        <div style="background:white; padding:20px; border-radius:10px; text-align:center;">
-            <p>${message}</p>
-            <button style="margin-top:10px;" onclick="document.body.removeChild(this.parentElement.parentElement); (${callback})();">OK</button>
-        </div>
-    `;
-    document.body.appendChild(modal);
+function showMessage(msg, callback) {
+  const toast = document.createElement("div");
+  toast.className = "custom-toast";
+  toast.innerText = msg;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.classList.add("show"), 10);
+  setTimeout(() => {
+    toast.classList.remove("show");
+    setTimeout(() => {
+      toast.remove();
+      if (callback) callback();
+    }, 300);
+  }, 2000);
 }

@@ -1,42 +1,29 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Merji Store</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Home - Merji Store Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body onload="checkLogin()">
-    <div class="logout-button" onclick="logout()">🔙 Logout</div>
-    <div class="theme-toggle" onclick="toggleTheme()">🌓</div>
-    <div class="container">
-        <h1>Merji Store Marketplace</h1>
-        <h3>Selamat datang di Merji Store, silakan pilih produk kami di bawah ini.</h3>
-        <div class="products">
-            <div class="product" onclick="orderProduct('Hostingner')">
-                <h2>Hostingner</h2>
-                <p>Hosting Murah Kualitas Gak Kalah (Perbulan)</p>
-            </div>
-            <div class="product" onclick="orderProduct('Domain Premium')">
-                <h2>Domain Premium</h2>
-                <p>Domain Aktif Pertahun Free Akses CloudFlare</p>
-            </div>
-        </div>
-        <div id="orderLink"></div>
-    </div>
-    <script src="script.js"></script>
+<body>
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+  <h4 id="greeting" style="margin: 0; font-size: 1em;">Hallo, User</h4>
+  <button onclick="logout()" style="padding: 4px 8px; font-size: 0.7em; border-radius: 5px; background:#ccc; display:inline-block; width:auto;">Logout</button>
+</div>
+    <a href="produk.html"><button style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 10px;">Paket Hostingner</button></a>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    const nama = localStorage.getItem("nama");
+    if (nama) {
+      document.getElementById("greeting").innerText = "Hallo, " + nama;
+    }
+  </script>
 
-    <footer>
-        <div class="socials">
-            <p>Akun Media Sosial Kami</p>
-            <p>YouTube: <a href="https://youtube.com/@Merji" target="_blank">Merji</a> |
-               TikTok: <a href="https://tiktok.com/@MerjiOklama" target="_blank">@MerjiOklama</a> |
-               Instagram: <a href="https://instagram.com/merjioklama" target="_blank">@merjioklama</a></p>
-            <p>📧 Support: <a href="mailto:merjibusnise@gmail.com">merjibusnise@gmail.com</a></p>
-        </div>
-        <div class="copyright">© 2025 Copyright Merji Store</div>
-    </footer>
-
+  <footer style="text-align:center; margin-top: 40px; font-size: 0.9em; color: #555;">
+    © 2025 Copyright Merji Developer
+  </footer>
 </body>
 </html>
